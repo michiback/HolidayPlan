@@ -9,7 +9,8 @@ export class Person {
     entry_date: Date;
     holidays: Holiday[];
 
-    constructor(first_name:string,last_name:string,days:number,entry_date:Date) {
+    constructor(id:number, first_name:string,last_name:string,days:number,entry_date:Date) {
+        this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.days = days;
