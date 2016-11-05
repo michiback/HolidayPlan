@@ -1,4 +1,24 @@
-<h2>{{person.getFullname()}}</h2>
-<p>
-  person-detail works!
-</p>
+<h2>{{person.first_name}} {{person.last_name}}</h2>
+<form (ngSubmit)="save()">
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" class="form-control" id="first_name" required [(ngModel)]="person.first_name" name="first_name">
+    </div>
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" class="form-control" id="last_name" required [(ngModel)]="person.last_name" name="last_name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" required [(ngModel)]="person.email" name="email">
+    </div>
+    <div class="form-group">
+        <label for="days">Number of Holidays</label>
+        <input type="number" class="form-control" id="days" required  min="0" max="365" [(ngModel)]="person.dys" name="days">
+    </div>
+    <div class="form-group">
+        <label for="entry_date">Entry Date</label>
+        <input type="date" class="form-control" id="entry_date" required [(ngModel)]="person.entry_date" name="entry_date">
+    </div>
+    <button type="submit" class="btn btn-default">Save</button>
+</form>

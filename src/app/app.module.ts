@@ -24,6 +24,7 @@ import { PersonDetailComponent } from './person-detail/person-detail.component';
         RouterModule.forRoot([
             { path: 'persons', component: PersonsComponent },
             { path: 'person/:id', component: PersonDetailComponent },
+            { path: 'person', component: PersonDetailComponent },
             { path: '', component: DashboardComponent }
         ])
     ],

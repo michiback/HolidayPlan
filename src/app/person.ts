@@ -1,21 +1,15 @@
 import {Holiday} from "./holiday";
 
 export class Person {
-    id: number;
-    first_name: string;
-    last_name: string;
-    email: string;
-    days: number;
-    entry_date: Date;
-    holidays: Holiday[];
+    public id: number;
+    public first_name: string;
+    public last_name: string;
+    public email: string;
+    public days: number;
+    public entry_date: Date;
+    public holidays: Holiday[];
 
-    constructor(id:number, first_name:string,last_name:string,days:number,entry_date:Date) {
-        this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.days = days;
-        this.entry_date = entry_date;
-    }
+    constructor() {}
 
     public addHoliday(holiday : Holiday) {
         this.holidays.push(holiday);

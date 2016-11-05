@@ -1,6 +1,7 @@
 <h2>Employees</h2>
+<a routerLink="/person" class="btn btn-sm">Add Person</a>
 <ul>
     <li *ngFor="let person of persons">
-        <a [routerLink]="['/person', person.id]"> {{person.getFullname()}}</a>
+        <a [routerLink]="['/person', person.id]"> {{person.getFullname()}}</a> <button class="btn btn-sm" (click)="remove(person)">Delete</button>
     </li>
 </ul>

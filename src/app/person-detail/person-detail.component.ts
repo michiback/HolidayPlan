@@ -7,7 +7,8 @@ import {Person} from "../person";
 
 @Component({
     templateUrl: './person-detail.component.html',
-    styleUrls: ['./person-detail.component.css']
+    styleUrls: ['./person-detail.component.css'],
+    providers: [PersonService]
 })
 
 export class PersonDetailComponent implements OnInit {
@@ -21,9 +22,20 @@ export class PersonDetailComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+
         this.route.params.forEach((params: Params) => {
-            let id = params['id'];
-            this.personService.getPerson(id).subscribe((person: Person) => this.person = person);
+            console.log(params);
+            if( !params['id'] ) {
+                this.person = new Person();
+            } else {
+                let id = params['id'];
+                this.personService.getPerson(id).subscribe((person: Person) => this.person = person);
+            }
         });
+
+    }
+
+    save() {
+        this.personService.save(this.person).subscribe( (person: Person) => this.person = person);
     }
 }

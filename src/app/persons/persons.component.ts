@@ -9,12 +9,22 @@ import {Person} from "../person";
 
 export class PersonsComponent implements OnInit {
     title = 'Person List';
+
     persons: Person[];
+
     constructor(private personService: PersonService) {}
+
     getPersons(): void {
         this.personService.getPersons().subscribe( (persons:Person[]) => this.persons = persons );
     }
+
     ngOnInit(): void {
         this.getPersons();
+    }
+
+    remove(person: Person) {
+        if( confirm("Remove user "+person.id+"?") ) {
+            this.personService.remove(person).subscribe( any => this.getPersons() );
+        }
     }
 }
