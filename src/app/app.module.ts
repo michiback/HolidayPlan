@@ -9,13 +9,17 @@ import { AppComponent } from './app.component';
 import { PersonsComponent } from './persons/persons.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
+import { HolidaysComponent } from './holidays/holidays.component';
+import { HolidayDetailComponent } from './holiday-detail/holiday-detail.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         PersonsComponent,
         DashboardComponent,
-        PersonDetailComponent
+        PersonDetailComponent,
+        HolidaysComponent,
+        HolidayDetailComponent
     ],
     imports: [
         BrowserModule,

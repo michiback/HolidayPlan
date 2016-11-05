@@ -22,9 +22,7 @@ export class PersonDetailComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-
         this.route.params.forEach((params: Params) => {
-            console.log(params);
             if( !params['id'] ) {
                 this.person = new Person();
             } else {
@@ -32,10 +30,13 @@ export class PersonDetailComponent implements OnInit {
                 this.personService.getPerson(id).subscribe((person: Person) => this.person = person);
             }
         });
-
     }
 
     save() {
-        this.personService.save(this.person).subscribe( (person: Person) => this.person = person);
+        this.personService.save(this.person)
+            .subscribe( (person: Person) => {
+                this.person = person;
+                this.location.replaceState('/person/'+person.id);
+            });
     }
 }

@@ -90,16 +90,17 @@ export class PersonService {
 
     private _setPerson(person: Person) {
         let persons = this._getPersons();
-        let l = persons.length*1;
+        let add = true;
 
         for(let i in persons) {
             if( persons[i].id == person.id ) {
                 persons[i] = person;
+                add = false;
                 break;
             }
         }
 
-        if( l == persons.length ) {
+        if( add ) {
             persons.push(person);
         }
 
